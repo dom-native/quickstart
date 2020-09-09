@@ -1,0 +1,24 @@
+# Ignore . file by default
+.*
+
+!.gitignore
+
+# ignore node_modules
+node_modules/
+
+dist/
+
+# opt-in mode for images
+*.png
+!fav.png
+
+# Safety net
+*.map
+*.jpeg
+*.jpg
+*.zip
+*.gz
+*.tar
+*.tgz
+*.mov
+*.mp4
