@@ -3,11 +3,11 @@ import { BaseHTMLElement, customElement, html } from 'dom-native';
 @customElement('v-main')
 class MainView extends BaseHTMLElement {
 
-	// Note: called once on frist HTMLElement connectedCallback
+	// Note: called on once on first HTMLElement connectedCallback
 	//       Good place to innitialize content for non shadowdom elements
 	init() {
 
-		this.append(html`<h2>Hello World from ${this.constructor.name} HTMLElement!</h2>`);
+		this.append(html`<h2>Hello World - from <strong>${this.constructor.name}</strong> HTMLElement!</h2>`);
 
 		// same as:
 		// const tmpl = document.createElement('template');

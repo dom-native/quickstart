@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!-- <link rel="stylesheet" type="text/css" href="icons.css"> -->
+		<script src="https://demo.dom-native.org/dom-native-0.9.12-SNAPSHOT-1.min.js"></script>
+		<style>
+		/* --------- Just for demo page --------- */
+		body{
+			max-width: 632px;
+			margin: 0 auto;
+		}
+		.icon-card{
+			width: 92px;
+			height: 64px;
+			float: left;
+			text-align: center;
+			border: solid 1px #eee;
+			padding-top: 8px;
+		}
+		.icon-card label{
+			display: block;
+			text-align: center;
+			font-size: 11px;
+		}
+		/* --------- /Just for demo page --------- */
+
+		/* In app code, you might want to have a class looking like this. 
+			 Note that the svg will stretch to the size of this div */
+		svg.svg-ico{
+			width: 100%;
+			height: 100%;
+		}
+
+		/* This is the div container for all icons. This guarantees that we can use the full DOM layout (e.g., flexbox) without worrying svg support.*/
+		.icon{
+			display: inline-block;
+			width: 32px;
+			height: 32px;
+			margin: 0 8px;
+		}
+
+		.icon.big{
+			width: 64px;
+			height: 64px;
+		}
+
+		/* symbols has been stripped of their "fill" attribute (to workaround chrome bug on styling external svg)
+		   so, now you can simply style them the way you want.
+		*/
+		.icon:hover{
+			fill: red;
+		}
+
+		</style>
+		
+		<script>
+
+		// find the "spriteName" from the URL
+		var fileName = window.location.pathname.split("/").slice(-1)[0];		
+		var spriteName = fileName.replace("-demo.html","");
+
+		// add the 
+		document.addEventListener("DOMContentLoaded", async function(event) {
+			const url = spriteName + ".svg";
+			const svgContent = await (await fetch(url)).text();
+			const xml = (new DOMParser()).parseFromString(svgContent, "application/xml");
+			
+			const symbols = Array.from(xml.querySelectorAll("symbol")).map(sym => ({name:sym.getAttribute("id")}));
+			// do after the symbols above as the firstElementChild will be moved
+			document.querySelector("head").appendChild(xml.firstElementChild);
+
+			document.querySelector("#icons-ctn").innerHTML = renderSymbols(symbols);
+
+		});		
+
+		function renderSymbols(symbols){
+			let htmlContent = '';
+			for (const {name} of symbols){
+				htmlContent += `
+					<div class="icon-card">
+						<div class="icon">
+							<svg class="svg-ico">
+								<use xlink:href="#${name}"></use>
+							</svg>
+						</div>
+						<label>${name}</label>
+					</div>				
+					`
+			}
+			return htmlContent;
+		}		
+		</script>
+	</head>	
+
+	<body>
+		<h1>Icons</h1>
+		<div id="icons-ctn">
+
+		</div>
+
+		<!-- handlebars template -->
+		<script id="icons-view" type="text/html">
+			{{#each symbols}}
+			<div class="icon-card">
+				<div class="icon">{{{symbol name}}}</div>
+				<label>{{name}}</label>
+			</div>
+			{{/each}}
+		</script>
+	</body>
+</html>

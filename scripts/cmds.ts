@@ -28,6 +28,8 @@ async function watch() {
 	spawn('npm', ['run', 'build-js', '--', '-w']);
 	spawn('npm', ['run', 'build-css', '--', '-w']);
 
+	spawn('npm', ['run', 'sketchdev', '--', '-w']);
+
 	// start the webhere web server
 	spawn('./node_modules/.bin/webhere', ['-p', '8888', '-s'], { onStdout: () => { } });
 
