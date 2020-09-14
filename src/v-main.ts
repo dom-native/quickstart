@@ -7,15 +7,15 @@ class MainView extends BaseHTMLElement {
 	//       Good place to innitialize content for non shadowdom elements
 	init() {
 
-		this.append(html`<h2>Hello World - from <strong>${this.constructor.name}</strong> HTMLElement!</h2>`);
+		this.append(html`<div class="hello-box">Hello <strong>World</strong></div>`);
 
 		// same as:
 		// const tmpl = document.createElement('template');
-		// tmpl.innerHTML = `<h2>Hello World from ${this.constructor.name} HTMLElement!</h2>`;
+		// tmpl.innerHTML = `<div class="hello-box">Hello <strong>World</strong></div>`;
 		// this.append(tmpl.content);
 
 		// or same as:  
-		// this.innerHTML = `<h2>Hello World from ${this.constructor.name} HTMLElement!</h2>`;
+		// this.innerHTML = `<div class="hello-box">Hello <strong>World</strong></div>`;
 
 	}
 

@@ -33,6 +33,9 @@ async function watch() {
 	// start the webhere web server
 	spawn('./node_modules/.bin/webhere', ['-p', '8888', '-s'], { onStdout: () => { } });
 
+	// start the live reload server which will reload the app and css on dist .js and .css changes
+	spawn('./node_modules/.bin/livereload', ['dist/', '-w', '500', '-d']);
+
 	// wait that the server is full started
 	await wait(500);
 

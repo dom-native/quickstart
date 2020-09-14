@@ -2,10 +2,22 @@
 
 v-main{
 	flex: 1;
-	margin: 1rem;
-	border: solid 1px var(--clr-prime); /* css console.log */
 	background: #fff;
+
+	/* for dev */
+	margin: 1rem;
+	border: solid 1px var(--clr-prime); 
+
+	/* children positioning with css grid */
 	display: grid;
 	align-items: center;
 	justify-content: center;
+
+	/* demo box */
+	.hello-box{
+		font-size: 1.5rem;
+		padding: 3rem;
+		box-shadow: var(--elev-3);
+		text-align: center;		
+	}
 }
