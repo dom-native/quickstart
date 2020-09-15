@@ -1,6 +1,6 @@
 {
   "name": "@dom-native/quickstart",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A minimalistic starter project for modern and native Web Component frontend development.",
   "main": "",
   "repository": {
@@ -13,14 +13,14 @@
     "utils-min": "^0.1.16"
   },
   "devDependencies": {
+    "p-spawn": "^0.5.5",
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-multi-entry": "^4.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "cmdrouter": "^0.3.1",
     "fs-extra-plus": "^0.5.19",
     "livereload": "^0.9.1",
-    "p-spawn": "^0.5.4",
-    "postcss": "^7.0.32",
+    "postcss": "^8.0.2",
     "postcss-cli": "^7.1.2",
     "postcss-import": "^12.0.1",
     "postcss-mixins": "^6.2.3",
@@ -28,7 +28,7 @@
     "rollup": "^2.26.11",
     "rollup-plugin-css-only": "^2.1.0",
     "rollup-plugin-typescript2": "^0.27.2",
-    "sketchdev": "^0.6.1",
+    "sketchdev": "^0.6.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2",
     "webhere": "^1.1.0"
