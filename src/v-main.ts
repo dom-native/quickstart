@@ -14,7 +14,7 @@ class MainView extends BaseHTMLElement {
 		// tmpl.innerHTML = `<div class="hello-box">Hello <strong>World</strong></div>`;
 		// this.append(tmpl.content);
 
-		// or same as:  
+		// equivalent of:  
 		// this.innerHTML = `<div class="hello-box">Hello <strong>World</strong></div>`;
 
 	}
