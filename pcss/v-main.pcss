@@ -15,9 +15,18 @@ v-main{
 
 	/* demo box */
 	.hello-box{
-		font-size: 1.5rem;
 		padding: 3rem;
-		box-shadow: var(--elev-3);
-		text-align: center;		
+		box-shadow: var(--elev-3);		
+		font-size: 1.5rem;
+		display: flex;
+		align-items: center;
+
+		c-ico{
+			--fill: green; /* cssVar for shadowRoot svg element styling */
+			width: 2rem;
+			height: 2rem;
+			margin-right: 1rem;
+		}
+
 	}
 }
