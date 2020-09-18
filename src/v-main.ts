@@ -1,23 +1,22 @@
-import { BaseHTMLElement, customElement, html } from 'dom-native';
+import { BaseHTMLElement, customElement, first, html, onEvent } from 'dom-native';
 
-@customElement('v-main')
+@customElement('v-main') // same as customElements.define('v-main', IcoElement) 
 class MainView extends BaseHTMLElement {
 
-	// Note: called on once on first HTMLElement connectedCallback
-	//       Good place to innitialize content for non shadowdom elements
-	init() {
-
-		this.append(html`<div class="hello-box"><c-ico href="svg/sprite.svg#ico-check"></c-ico>Hello <strong>World</strong></div>`);
-
-		// same as:
-		// const tmpl = document.createElement('template');
-		// tmpl.innerHTML = `<div class="hello-box">Hello <strong>World</strong></div>`;
-		// this.append(tmpl.content);
-
-		// equivalent of:  
-		// this.innerHTML = `<div class="hello-box">Hello <strong>World</strong></div>`;
-
+	@onEvent('pointerup', '.hello-box')
+	onHelloClick(evt: PointerEvent) {
+		first(this, '.hello-box strong')!.textContent = 'CLICKED';
 	}
 
+
+	init() { // called once on the first connectedCallback
+
+		this.append(html`
+			<div class="hello-box">
+				<c-ico href="svg/sprite.svg#ico-check"></c-ico>
+				Hello <strong>World</strong>
+			</div>`);
+
+	}
 
 }

@@ -5,5 +5,6 @@ const plugins = [
 ];
 
 module.exports = {
-	plugins,
+	map: { inline: false },
+	plugins
 }
