@@ -15,6 +15,11 @@ module.exports = {
 		flatten: '-'
 	},
 	{
+		type: 'png',
+		out: './',
+		artboard: /^images\/.*/
+	},
+	{
 		type: 'style',
 		out: 'pcss/var-colors.pcss',
 		style: /^clr\/.*/,
