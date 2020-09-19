@@ -28,10 +28,11 @@ npm run watch
 
 ## Start coding
 
-After `npm run watch` edit and of the files below and hit browser refresh: 
+After `npm run watch` for **live coding**: 
 
-- `pcss/main.pcss` get recompiled as `dist/app-bundle.pcss`
-- `src/**/*.ts ` get recompiled as `dist/app-bundle.js`
+- `pcss/main.pcss` and its imports gets recompiled as `dist/app-bundle.pcss`
+- `src/**/*.ts ` files get re-compiled as `dist/app-bundle.js`
+- `design.sketch` if present and if has sketch installed, generates `svg/sprite.svg` and `pcss.var-colors.pcss`
 
 > NOTE: As of now, when adding new .ts requires a restart of 'npm run watch' (changing don't)
 

@@ -1,6 +1,6 @@
 {
   "name": "@dom-native/quickstart",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A minimalistic starter project for modern and native Web Component frontend development.",
   "main": "",
   "repository": {
@@ -28,7 +28,7 @@
     "rollup": "^2.27.1",
     "rollup-plugin-css-only": "^2.1.0",
     "rollup-plugin-typescript2": "^0.27.2",
-    "sketchdev": "file:../../node-sketchdev/node-sketchdev_src/sketchdev-0.6.3-SNAPSHOT.tgz",
+    "sketchdev": "^0.6.3",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3",
     "webhere": "^1.1.0"

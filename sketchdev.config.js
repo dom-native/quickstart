@@ -16,7 +16,7 @@ module.exports = {
 	},
 	{
 		type: 'style',
-		out: 'pcss/colors.pcss',
+		out: 'pcss/var-colors.pcss',
 		style: /^clr\/.*/,
 		group: 2
 	}
