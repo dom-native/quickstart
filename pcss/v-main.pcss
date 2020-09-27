@@ -14,21 +14,27 @@ v-main{
 	grid-template-rows: 1fr auto 1fr;
 	grid-template-columns: 1fr auto 1fr;
 
-	/* Position the .hello-box from parent (i.e., v-main) */ 
+	/* Position the .hello-box child from parent (i.e., v-main) */ 
 	.hello-box{
-		grid-area: 2 / 2; /* second row / second column */
+		grid-area: 2 / 2; /* grid second row / second column */
 	}
 
 	/* .hello-box styles, could/should be part of the component css or shadowDOM */
 	.hello-box{
 		cursor: pointer;
-		box-shadow: var(--elev-3);		
-		font-size: 2rem;
-		padding: 1rem;
+		box-shadow: var(--elev-5);		
+		font-size: 1.5rem;
+		padding: 1.5rem;
+		user-select: none;
+
 		c-ico{
-			--fill: green; /* cssVar for shadowRoot svg element styling */
-			width: 1.5rem;
-			height: 1.5rem;
+			--fill: var(--clr-txt-ok); /* cssVar for shadowRoot svg element styling */
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+
+		&:active{
+			box-shadow: var(--elev-2);
 		}
 	}
 }
