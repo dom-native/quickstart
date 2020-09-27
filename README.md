@@ -1,6 +1,5 @@
 
-A minimalistic starter project for modern and native Web Component frontend development. 
-
+A minimalistic but scalable starter project for modern and native Web Component frontend development. 
 
 > Technology: [Typescript](https://www.typescriptlang.org/) | [postcss](https://postcss.org/) | [rollup](https://rollupjs.org/) | [native web components](https://developers.google.com/web/fundamentals/web-components/) |  [dom-native library (<7kb gzip, < 17 min.js)](https://www.npmjs.com/package/dom-native)
 
