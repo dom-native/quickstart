@@ -1,6 +1,6 @@
 {
   "name": "@dom-native/quickstart",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A minimalistic but scalable starter project for modern and native Web Component frontend development.",
   "main": "",
   "repository": {
@@ -24,7 +24,7 @@
     "livereload": "^0.9.1",
     "lodash.debounce": "^4.0.8",
     "p-spawn": "^0.5.5",
-    "postcss": "^7.0.34",
+    "postcss": "^7.0.35",
     "postcss-cli": "^7.1.2",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.3",

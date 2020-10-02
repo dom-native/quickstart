@@ -33,6 +33,3 @@ After `npm run watch` for **live coding**:
 - `src/**/*.ts ` files get re-compiled as `dist/app-bundle.js`
 - `design.sketch` if present and if has sketch installed, generates `svg/sprite.svg` and `pcss.var-colors.pcss`
 
-> NOTE: As of now, when adding new .ts requires a restart of 'npm run watch' (changing don't)
-
-
