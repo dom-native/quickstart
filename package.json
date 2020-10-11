@@ -1,6 +1,6 @@
 {
   "name": "@dom-native/quickstart",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A minimalistic but scalable starter project for modern and native Web Component frontend development.",
   "main": "",
   "repository": {
