@@ -4,25 +4,20 @@ v-main{
 	flex: 1;
 	background: #fff;
 
-	/* for dev */
-	margin: 1rem;
-	border: solid 1px var(--clr-prime); 
-
 	/* children positioning with css grid */
 	display: grid;
-
 	grid-template-rows: 1fr auto 1fr;
 	grid-template-columns: 1fr auto 1fr;
 
-	/* Position the .hello-box child from parent (i.e., v-main) */ 
-	.hello-box{
+	/* Position the first child in the center of v-main */ 
+	& > *:first-child{
 		grid-area: 2 / 2; /* grid second row / second column */
 	}
-
+	
 	/* .hello-box styles, could/should be part of the component css or shadowDOM */
 	.hello-box{
 		cursor: pointer;
-		box-shadow: var(--elev-5);		
+		box-shadow: var(--elev-5); /* for demo purpose */
 		font-size: 1.5rem;
 		padding: 1.5rem;
 		user-select: none;

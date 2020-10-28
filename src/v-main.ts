@@ -14,9 +14,10 @@ class MainView extends BaseHTMLElement { // extends native HTMLElement
 
 		this.append(html`
 			<div class="hello-box">
-				<c-ico href="#ico-thumb"></c-ico>
+				<c-ico href="#ico-star"></c-ico>
 				Hello <strong>World</strong>
-			</div>`);
+			</div>
+		`);
 
 	}
 

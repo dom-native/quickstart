@@ -1,7 +1,7 @@
 {
   "name": "@dom-native/quickstart",
-  "version": "0.1.9",
-  "description": "A minimalistic but scalable starter project for modern and native Web Component frontend development.",
+  "version": "0.1.10",
+  "description": "Simple but scalable Native Web Component project based on TypeScript, PostCSS, and dom-native",
   "main": "",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "keywords": [],
   "dependencies": {
     "dom-native": "^0.9.14",
-    "utils-min": "^0.1.16"
+    "utils-min": "^0.1.17"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
