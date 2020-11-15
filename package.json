@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "dom-native": "^0.9.15",
+    "dom-native": "^0.9.16",
     "utils-min": "^0.1.17"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "postcss-cli": "^8.2.0",
     "postcss-import": "^13.0.0",
     "postcss-nested": "^5.0.1",
-    "rollup": "^2.33.1",
+    "rollup": "^2.33.2",
     "rollup-plugin-css-only": "^2.1.0",
     "rollup-plugin-typescript2": "^0.29.0",
     "sketchdev": "^0.6.6",
