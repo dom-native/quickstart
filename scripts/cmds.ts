@@ -1,10 +1,9 @@
-import { ChildProcess } from 'child_process';
 import chokidar from 'chokidar';
 import { router } from 'cmdrouter';
+import execa, { ExecaChildProcess } from 'execa';
 import * as fs from 'fs-extra-plus';
 import { readFile } from 'fs-extra-plus';
 import debounce from 'lodash.debounce';
-import { spawn, spawnCp } from 'p-spawn';
 import { isEmpty, wait } from 'utils-min';
 import { openBrowser } from './utils';
 
@@ -14,12 +13,13 @@ const SYMBOLS_TS_PATH = 'src/icons-default.ts'
 
 router({ watch, build }).route();
 
+const { stdout, stderr } = process;
 
 async function build() {
 	await fs.saferRemove('./dist/');
 
-	await spawn('npm', ['run', 'build-js']);
-	await spawn('npm', ['run', 'build-css']);
+	await execa('npm', ['run', 'build-js'], { stdout, stderr });
+	await execa('npm', ['run', 'build-css'], { stdout, stderr });
 }
 
 
@@ -30,15 +30,15 @@ async function watch() {
 
 	// start the watch session
 	watchJs();
-	spawn('npm', ['run', 'build-css', '--', '-w']);
+	execa('npm', ['run', 'build-css', '--', '-w'], { stdout, stderr });
 
-	spawn('npm', ['run', 'sketchdev', '--', '-w']);
+	execa('npm', ['run', 'sketchdev', '--', '-w'], { stdout, stderr });
 
 	// start the webhere web server
-	spawn('./node_modules/.bin/webhere', ['-p', '8888', '-s'], { onStdout: () => { } });
+	execa('./node_modules/.bin/webhere', ['-p', '8888', '-s'], { stderr });
 
 	// start the live reload server which will reload the app and css on dist .js and .css changes
-	spawn('./node_modules/.bin/livereload', ['"dist/, svg/"', '--extraExts', 'svg', '-w', '500'], { shell: true });
+	execa('./node_modules/.bin/livereload', ['"dist/, svg/"', '--extraExts', 'svg', '-w', '500'], { shell: true, stdout, stderr });
 
 	// wait that the server is full started
 	await wait(500);
@@ -51,22 +51,22 @@ async function watch() {
 
 // A little extra work on watch typescript/js to restart when add file
 async function watchJs() {
-	let jsCp: ChildProcess | undefined;
+	let buildjsExeca: ExecaChildProcess | undefined;
 	// files that have been added but still empty, so need to wait on change
 	const pendingEditFiles = new Set<string>();
 
 	// restart function
 	async function startBuildWatch() {
 		let jsPro: Promise<any>;
-		if (jsCp) {
-			jsCp.kill();
+		if (buildjsExeca) {
+			buildjsExeca.kill();
 			await wait(200);
 		}
 
 		pendingEditFiles.clear(); // some non-critical unhandled corner cases (some files might still be empty)
-		[jsPro, jsCp] = spawnCp('npm', ['run', 'build-js', '--', '-w']);
+		buildjsExeca = execa('npm', ['run', 'build-js', '--', '-w'], { stdout, stderr });
 
-		jsPro.catch(ex => { // to avoid unhandled exception
+		buildjsExeca.catch(ex => { // to avoid unhandled exception
 			console.log('npm run build-js terminated');
 		});
 	}

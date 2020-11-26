@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "dom-native": "^0.9.16",
+    "dom-native": "^0.9.17",
     "utils-min": "^0.1.17"
   },
   "devDependencies": {
@@ -20,20 +20,19 @@
     "autoprefixer": "^10.0.2",
     "chokidar": "^3.4.3",
     "cmdrouter": "^0.3.1",
+    "execa": "^4.1.0",
     "fs-extra-plus": "^0.5.20",
     "livereload": "^0.9.1",
     "lodash.debounce": "^4.0.8",
-    "p-spawn": "^0.5.5",
-    "postcss": "^8.1.7",
-    "postcss-cli": "^8.2.0",
+    "postcss": "^8.1.10",
+    "postcss-cli": "^8.3.0",
     "postcss-import": "^13.0.0",
     "postcss-nested": "^5.0.1",
-    "rollup": "^2.33.2",
-    "rollup-plugin-css-only": "^2.1.0",
+    "rollup": "^2.33.3",
     "rollup-plugin-typescript2": "^0.29.0",
     "sketchdev": "^0.6.6",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.5",
+    "typescript": "^4.1.2",
     "webhere": "^1.1.0"
   },
   "files": [
