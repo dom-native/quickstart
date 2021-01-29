@@ -13,11 +13,11 @@
     "utils-min": "^0.1.17"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-multi-entry": "^4.0.0",
-    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
     "@types/lodash.debounce": "^4.0.6",
-    "autoprefixer": "^10.2.1",
+    "autoprefixer": "^10.2.4",
     "chokidar": "^3.5.1",
     "cmdrouter": "^0.3.1",
     "execa": "^5.0.0",
@@ -28,7 +28,7 @@
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.3",
-    "rollup": "^2.36.1",
+    "rollup": "^2.38.1",
     "rollup-plugin-typescript2": "^0.29.0",
     "sketchdev": "^0.6.6",
     "ts-node": "^9.1.1",
