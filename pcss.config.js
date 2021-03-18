@@ -5,6 +5,8 @@ const plugins = [
 ];
 
 module.exports = {
-	map: { inline: false },
+	input: 'pcss/main.pcss',
+	output: 'dist/app-bundle.css',
+	watchPath: 'pcss/**/*.pcss',
 	plugins
 }

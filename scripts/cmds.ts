@@ -29,7 +29,7 @@ async function watch() {
 	await build();
 
 	// start the watch session
-	watchJs();
+	watchRollupTs(); // special handling of js to allow adding/removing files
 	execa('npm', ['run', 'build-css', '--', '-w'], { stdout, stderr });
 
 	execa('npm', ['run', 'sketchdev', '--', '-w'], { stdout, stderr });
@@ -38,6 +38,7 @@ async function watch() {
 	execa('./node_modules/.bin/webhere', ['-p', '8888', '-s'], { stderr });
 
 	// start the live reload server which will reload the app and css on dist .js and .css changes
+	// ./node_modules/.bin/livereload "dist/, svg/" --extraExts svg -w 500
 	execa('./node_modules/.bin/livereload', ['"dist/, svg/"', '--extraExts', 'svg', '-w', '500'], { shell: true, stdout, stderr });
 
 	// wait that the server is full started
@@ -49,8 +50,11 @@ async function watch() {
 }
 
 
-// A little extra work on watch typescript/js to restart when add file
-async function watchJs() {
+/**
+ * Extra processing on top of rollup/typescript2 allowing adding/removing files and restarting the 
+ * watch session accordingly
+ */
+async function watchRollupTs() {
 	let buildjsExeca: ExecaChildProcess | undefined;
 	// files that have been added but still empty, so need to wait on change
 	const pendingEditFiles = new Set<string>();
@@ -96,10 +100,9 @@ async function watchJs() {
 				startBuildWatchDebounced();
 			}
 		}
-		// Note: rollup-typescript2 watch handle this case, so nothing to do. 
+		// Note: rollup-typescript2 watch handle if existing file (with content) change, so nothing to do. 
 	}
 
 	codeWatch.on('all', handleChange);
-
 }
 
